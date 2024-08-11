@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿QUIERES SALIR CONMIGO?</title>
+    <style>
+        @import url('https://fonts.cdnfonts.com/css/algerian');
+        
+        body {
+            background-color: violet;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Algerian', sans-serif;
+        }
+        .container {
+            text-align: center;
+        }
+        h1 {
+            font-size: 30px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+        .button {
+            padding: 15px 30px;
+            font-size: 20px;
+            margin: 10px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        #yes-button {
+            background-color: green;
+            color: white;
+        }
+        #no-button {
+            background-color: red;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>¿QUIERES SALIR CONMIGO?</h1>
+        <button id="yes-button" class="button" onclick="yesClick()">Sí</button>
+        <button id="no-button" class="button" onclick="noClick()">No</button>
+    </div>
+
+    <script>
+        let noButtonScale = 1;
+        let yesButtonScale = 1;
+
+        function yesClick() {
+            let day = prompt("¿Qué día puedes?");
+            if (day) {
+                alert(`¡Perfecto! Te espero el ${day}.`);
+            }
+        }
+
+        function noClick() {
+            let noButton = document.getElementById('no-button');
+            let yesButton = document.getElementById('yes-button');
+
+            // Reducir el tamaño del botón "No"
+            noButtonScale *= 0.8;
+            noButton.style.transform = `scale(${noButtonScale})`;
+
+            // Aumentar el tamaño del botón "Sí"
+            yesButtonScale *= 1.2;
+            yesButton.style.transform = `scale(${yesButtonScale})`;
+        }
+    </script>
+</body>
+</html>
